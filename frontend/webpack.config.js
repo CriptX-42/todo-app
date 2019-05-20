@@ -12,12 +12,12 @@ module.exports = {
         contentBase: './public',
     },
     resolve: {
-        extensions:  ['', '.js', '.jsx'],
+        extensions: ['', '.js', '.jsx'],
         alias: {
-            module: __dirname + '/node_modules'
+            modules: __dirname + '/node_modules'
         }
     },
-    plugin: [
+    plugins: [ 
         new ExtractTextPlugin('app.css')
     ],
     module: {
@@ -25,14 +25,14 @@ module.exports = {
             test: /.js[x]?$/,
             loader: 'babel-loader',
             exclude: /node_modules/,
-            query:{
+            query: {
                 presets: ['es2015', 'react'],
-                plugin: ['transform-object-reset-spread']
+                plugins: ['transform-object-rest-spread']
             }
         }, {
             test: /\.css$/,
             loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
-        },{
+        }, {
             test: /\.woff|.woff2|.ttf|.eot|.svg*.*$/,
             loader: 'file'
         }]
