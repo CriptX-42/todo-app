@@ -16,6 +16,8 @@ export default class Todo extends Component{
         this.handleMarkAsDone = this.handleMarkAsDone.bind(this)
         this.handleMarkAsPending = this.handleMarkAsPending.bind(this)
         this.handleSearch = this.handleSearch.bind(this)
+        this.handleClear = this.handleClear.bind(this)
+
         this.refresh()
     }
     refresh(description = ''){
@@ -36,6 +38,10 @@ export default class Todo extends Component{
         const description = this.state.description
         axios.post(URL, {description})
             .then(resp => this.refresh())
+    }
+
+    handleClear(){
+        this.refresh()
     }
 
     handleRemove(todo){
@@ -60,14 +66,13 @@ export default class Todo extends Component{
                 <TodoForm description={this.state.description} 
                     handleChange={this.handleChange}
                     handleAdd={this.handleAdd}
-                    handleSearch={this.handleSearch}>
+                    handleSearch={this.handleSearch}
+                    handleClear={this.handleClear}>
                 </TodoForm>
                 <TodoList list={this.state.list}
                     handleRemove={this.handleRemove}
                     handleMarkAsDone={this.handleMarkAsDone}
                     handleMarkAsPending={this.handleMarkAsPending}>
-
-
                 </TodoList>
             </div>
            

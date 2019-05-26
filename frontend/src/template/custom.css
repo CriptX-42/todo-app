@@ -5,3 +5,10 @@
     text-decoration: line-through;
     color:  rgb(165, 165, 165);
 }
+
+.tableActions{
+    width: 105;
+}
+.todoForm{
+    padding-bottom: 60px;
+}
